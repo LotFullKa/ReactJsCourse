@@ -1,0 +1,44 @@
+[
+    {
+      "title": "Edge of the Abyss",
+      "depth": "0–1,350 meters",
+      "describe": "Egg-shaped artifacts.",
+      "currentLikes": 999
+    },
+    {
+      "title": "Forest of Temptation",
+      "depth": "1,350–2,600 meters",
+      "describe": "Is this water falling up?",
+      "currentLikes": 300
+    },
+    {
+      "title": "Great Fault",
+      "depth": "2,600–7,000 meters",
+      "describe": "Soft and nice hamsters, and very tasty.",
+      "currentLikes": 2
+    },
+    {
+      "title": "The Goblets of Giants",
+      "depth": "7,000–12,000 meters",
+      "describe": "Oh, look! It's a giant hedgehog, maybe it's friendly.",
+      "currentLikes": 150
+    },
+    {
+      "title": "Sea of Corpses",
+      "depth": "12,000–13,000 meters",
+      "describe": "Abomination, does he have a tail and claws?",
+      "currentLikes": 10
+    },
+    {
+      "title": "The Capital of the Unreturned",
+      "depth": "13,000–15,500 meters",
+      "describe": "Finnaly, a peaceful vilage. Are we able to go back up?",
+      "currentLikes": 0
+    },
+    {
+      "title": "Great Abyss",
+      "depth": "15,000–?",
+      "describe": "~~~",
+      "currentLikes": -1
+    }
+  ]
