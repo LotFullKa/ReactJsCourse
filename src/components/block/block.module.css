@@ -1,0 +1,34 @@
+.card {
+    background-color: #882e0e30;
+    
+    width:330px;
+
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    border: 3px solid #882f0ec0;
+    border-radius: 35px;
+
+    padding: 20px;
+    padding-top: 15px;
+
+    font-size: 24px;
+}
+
+.pressed {
+    border: 3px solid rgb(160, 243, 36);
+    background-color: #25ae58c0;
+}
+
+.unpressed {
+    /*  */
+}
+
+.text {
+    transform: skew(-13deg);
+}
+
+.num {
+    font-weight: 240;
+}
