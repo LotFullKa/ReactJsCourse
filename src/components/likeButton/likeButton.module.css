@@ -1,0 +1,18 @@
+.image {
+    width: 80px;
+}
+
+.likeCount {
+    font-size: 60px;
+    display: inline-block;
+}
+
+.liked {
+    width: 80px;
+    transform: rotate(-15deg);
+
+}
+
+.unliked {
+    width: 80px;
+}
