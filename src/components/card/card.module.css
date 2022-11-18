@@ -1,11 +1,8 @@
 .card {
     background-color: #5ae56a8c;
-    
-    width:330px;
+    width:400px;
 
     margin: 20px;
-    margin-left: auto;
-    margin-right: auto;
     
     border: 3px solid #009011c0;
     border-radius: 35px;
@@ -14,6 +11,11 @@
     padding-top: 15px;
 
     font-size: 24px;
+    display:block;
+}
+
+.wrapper {
+   display: flex;
 }
 
 .pressed {

@@ -16,3 +16,8 @@
 .unliked {
     width: 80px;
 }
+
+.likediv {
+    text-align: left;
+    padding: 15px;
+}

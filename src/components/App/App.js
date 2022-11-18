@@ -1,6 +1,6 @@
 import './App.css';
 import data from '../../assets/mock-data.json'
-import { Card } from '../block/block';
+import { Card } from '../card/card';
 
 function App() {
   return (
