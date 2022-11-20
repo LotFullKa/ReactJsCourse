@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import style from './comment-field.module.css'
 import close from '../../../assets/close.png'
+import { getComments } from '../../../utils/get-comments-by-article'
 
 const defaultName = 'Anonimus'
 
@@ -23,12 +24,16 @@ function Comment({id, author, comment, selfremove_func}) {
     )
 }
 
-export function CommentField({isOpen}) {
+export function CommentField({isOpen, cardId}) {
     
     const [commentsList, setCommentsList] = useState([])
 
+    useEffect(() => {
+        getComments(cardId).then(fetchedData => setCommentsList(fetchedData))
+    }, [])
+
     const [comment, setComment] = useState('')
-    const [idGenerator, inc] = useState(0)
+    const [idGenerator, inc] = useState(commentsList.length)
 
     const onChange = event => {
         setComment(event.target.value)
@@ -43,8 +48,8 @@ export function CommentField({isOpen}) {
 
     const pushComment = () => {
         if (comment === '') return
-        console.log("comment "+ idGenerator +" was made")
-        setCommentsList([...commentsList, {id: idGenerator, text: comment}])
+        console.log("comment "+ idGenerator + " was made")
+        setCommentsList([...commentsList, {author: defaultName, articleId: cardId, id: idGenerator, text: comment}])
         inc(old => old + 1)
         setComment('')
     }
@@ -56,6 +61,8 @@ export function CommentField({isOpen}) {
         }
     }
 
+    console.log(commentsList)
+
     if (!isOpen) {
         return
     }
@@ -66,7 +73,7 @@ export function CommentField({isOpen}) {
                 {commentsList.map((com, index) => {
                     return <Comment key={index}
                         id={com.id}
-                        author={defaultName}
+                        author={com.author}
                         comment={com.text}
                         selfremove_func={remove}
                     />

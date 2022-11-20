@@ -6,22 +6,22 @@ import {CommentButton} from '../comment/commentButton/comment-button'
 import { useState } from "react";
 import { CommentField } from "../comment/commentField/comment-field";
 
-export function Card(props) {
+export function Card({cardId, title, depth, text, currentLikes}) {
 
     const [isCommentFieldOpen, openField] = useState(false)
 
     return (
         <div className={style.wrapper}>
         <div className={style.card}>
-            <h3>{props.title}</h3>
-            <p> Depth: {props.depth}</p>
-            <p className={style.text}>{props.text}</p>
+            <h3>{title}</h3>
+            <p> Depth: {depth}</p>
+            <p className={style.text}>{text}</p>
             <div className={style.wrapper}>
-            <LikeButton currentLikes={props.currentLikes}></LikeButton>
+            <LikeButton currentLikes={currentLikes}></LikeButton>
             <CommentButton filedOpenFunc={openField}/>
             </div>
         </div>
-        <CommentField isOpen={isCommentFieldOpen}/>
+        <CommentField isOpen={isCommentFieldOpen} cardId={cardId}/>
         </div>
     )
 }
