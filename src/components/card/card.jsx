@@ -2,9 +2,9 @@ import React from "react";
 import style from './card.module.css';
 
 import {LikeButton} from '../likeButton/like-button'
-import {CommentButton} from '../commentButton/comment-button'
+import {CommentButton} from '../comment/commentButton/comment-button'
 import { useState } from "react";
-import { CommentField } from "../commentField/comment-field";
+import { CommentField } from "../comment/commentField/comment-field";
 
 export function Card(props) {
 

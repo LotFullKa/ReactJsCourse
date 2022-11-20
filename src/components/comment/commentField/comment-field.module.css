@@ -1,0 +1,52 @@
+.commentField {
+    color: black;
+    background-color: #ffff;
+    width: 45%;
+    height: 314px;
+
+    margin: 20px;
+
+    border: 3px solid #009011c0;
+    border-radius: 35px;
+
+    padding: 20px;
+    padding-top: 15px;
+
+    font-size: 24px;
+    
+}
+
+.comments { 
+    height: 85%;
+    overflow-y: auto;
+    
+}
+
+.comment {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid green;
+    border-radius: 10px;
+}
+
+.author {
+    text-align: left;
+}
+
+.inputInterface {
+    display: flex;
+}
+
+.input {
+    min-width: 80%;
+    min-height: 50px;
+}
+
+.button {
+    height: 56px;
+}
+
+.remove {
+    height: 13px;
+    margin-left: auto;
+}

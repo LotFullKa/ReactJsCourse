@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import commentImg from '../../assets/comment.png'
+import commentImg from '../../../assets/comment.png'
 import style from './comment-button.module.css'
 
 
-export function CommentButton(props) {
+export function CommentButton({filedOpenFunc}) {
     const [isOpened, open] = useState(false)
 
     const [buttonStyle, changeButtonStyle] = useState(style.close)
 
     const press = () => {
-        open(oldVal=> !oldVal)
+        open(oldVal => !oldVal)
         if (!isOpened) {
             console.log("open comments")
             changeButtonStyle(style.open)
@@ -17,6 +17,8 @@ export function CommentButton(props) {
             console.log("close comments")
             changeButtonStyle(style.close)
         }
+        console.log("isOpened: ", isOpened)
+        filedOpenFunc(!isOpened)
     }
 
 
