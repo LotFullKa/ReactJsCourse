@@ -5,9 +5,9 @@ import { getComments } from '../../../utils/get-comments-by-article'
 
 const defaultName = 'Anonimus'
 
-function Comment({id, author, comment, selfremove_func}) {
+function Comment({id, author, comment, removeCommentById}) {
     
-    const remove = () => (selfremove_func(id))
+    const remove = () => (removeCommentById(id))
     console.log("comment " + id + " was made")
     return (
         <div className={style.comment}>
@@ -33,13 +33,17 @@ export function CommentField({isOpen, cardId}) {
     }, [])
 
     const [comment, setComment] = useState('')
-    const [idGenerator, inc] = useState(commentsList.length)
+    const [idGenerator, inc] = useState(commentsList.length + 1)
+    useEffect(() =>{
+            inc(commentsList.length + 1)
+        }, [commentsList])
+    console.log(idGenerator)
 
     const onChange = event => {
         setComment(event.target.value)
     }
 
-    const remove = (id) => {
+    const removeCommentById = (id) => {
         console.log("Comment " + id + " is deleted")
         setCommentsList(
             (prev) => (prev.filter(com => com.id !== id))
@@ -50,7 +54,7 @@ export function CommentField({isOpen, cardId}) {
         if (comment === '') return
         console.log("comment "+ idGenerator + " was made")
         setCommentsList([...commentsList, {author: defaultName, articleId: cardId, id: idGenerator, text: comment}])
-        inc(old => old + 1)
+        // inc(old => old + 1)
         setComment('')
     }
     
@@ -75,7 +79,7 @@ export function CommentField({isOpen, cardId}) {
                         id={com.id}
                         author={com.author}
                         comment={com.text}
-                        selfremove_func={remove}
+                        removeCommentById={removeCommentById}
                     />
                 }
                 )}

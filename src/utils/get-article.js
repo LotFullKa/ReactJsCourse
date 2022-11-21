@@ -1,6 +1,6 @@
 import articles from '../data/article.json'
 
-const ARTICLES_LOAD_DURATION = 10000;
+const ARTICLES_LOAD_DURATION = 1000;
 
 export async function getArticles() {
     return new Promise(resolve => {

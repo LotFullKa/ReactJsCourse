@@ -17,8 +17,8 @@ export function Card({cardId, title, depth, text, currentLikes}) {
             <p> Depth: {depth}</p>
             <p className={style.text}>{text}</p>
             <div className={style.wrapper}>
-            <LikeButton currentLikes={currentLikes}></LikeButton>
-            <CommentButton filedOpenFunc={openField}/>
+                <LikeButton currentLikes={currentLikes}></LikeButton>
+                <CommentButton filedOpenFunc={openField}/>
             </div>
         </div>
         <CommentField isOpen={isCommentFieldOpen} cardId={cardId}/>
