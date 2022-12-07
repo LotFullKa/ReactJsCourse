@@ -7,7 +7,6 @@ const defaultName = 'Anonimus'
 
 function Comment({id, author, comment, removeCommentById}) {
     
-    const remove = () => (removeCommentById(id))
     console.log("comment " + id + " was made")
     return (
         <div className={style.comment}>
@@ -16,7 +15,7 @@ function Comment({id, author, comment, removeCommentById}) {
             <img
                 className={style.remove} 
                 src={close} alt="remove"
-                onClick={remove}
+                onClick={() => (removeCommentById(id))}
             />
             </div>
             <div> {comment} </div>
@@ -25,8 +24,12 @@ function Comment({id, author, comment, removeCommentById}) {
 }
 
 export function CommentField({isOpen, cardId}) {
-    
     const [commentsList, setCommentsList] = useState([])
+    const [commentCount, setCommentCount] = useState([commentsList.length])
+
+    useEffect(() => {
+        setCommentCount(commentsList.length)
+    }, [commentsList])
 
     useEffect(() => {
         getComments(cardId).then(fetchedData => setCommentsList(fetchedData))
@@ -54,7 +57,6 @@ export function CommentField({isOpen, cardId}) {
         if (comment === '') return
         console.log("comment "+ idGenerator + " was made")
         setCommentsList([...commentsList, {author: defaultName, articleId: cardId, id: idGenerator, text: comment}])
-        // inc(old => old + 1)
         setComment('')
     }
     
@@ -65,23 +67,21 @@ export function CommentField({isOpen, cardId}) {
         }
     }
 
-    console.log(commentsList)
-
     if (!isOpen) {
-        return
+        return null
     }
 
     return (
         <div className={style.commentField}>
+            <div className={style.commentCount}> Количество комментариев: {commentCount}</div>
             <div className={style.comments}>
-                {commentsList.map((com, index) => {
-                    return <Comment key={index}
+                {commentsList.map((com, index) => 
+                    <Comment key={index}
                         id={com.id}
                         author={com.author}
                         comment={com.text}
                         removeCommentById={removeCommentById}
                     />
-                }
                 )}
             </div>
             <div className={style.inputInterface}>

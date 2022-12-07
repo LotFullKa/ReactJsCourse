@@ -10,16 +10,13 @@ function App() {
   useEffect(() => {
     getArticles().then(fetchedData => setData(fetchedData))
   }, [])
-  
-  console.log(data)
-
 
   return (
     <div className="App">
         <div className="App-header">Choose your favorite level in great Abyss
             <div className='Describe'>From manga "Made in Abyss"</div>
         </div>
-        {data === [] ? 
+        {!data ? 
             (<div>Loading. . .</div>) : 
             (<div>{data.map((item, index) => <Card 
                                                 key={index}

@@ -18,7 +18,7 @@ export function Card({cardId, title, depth, text, currentLikes}) {
             <p className={style.text}>{text}</p>
             <div className={style.wrapper}>
                 <LikeButton currentLikes={currentLikes}></LikeButton>
-                <CommentButton filedOpenFunc={openField}/>
+                <CommentButton fieldOpenFunc={openField}/>
             </div>
         </div>
         <CommentField isOpen={isCommentFieldOpen} cardId={cardId}/>

@@ -3,13 +3,12 @@ import commentImg from '../../../assets/comment.png'
 import style from './comment-button.module.css'
 
 
-export function CommentButton({filedOpenFunc}) {
+export function CommentButton({fieldOpenFunc}) {
     const [isOpened, open] = useState(false)
 
     const [buttonStyle, changeButtonStyle] = useState(style.close)
 
     const press = () => {
-        open(oldVal => !oldVal)
         if (!isOpened) {
             console.log("open comments")
             changeButtonStyle(style.open)
@@ -17,8 +16,10 @@ export function CommentButton({filedOpenFunc}) {
             console.log("close comments")
             changeButtonStyle(style.close)
         }
+        
+        open(oldVal => !oldVal)
         console.log("isOpened: ", isOpened)
-        filedOpenFunc(!isOpened)
+        fieldOpenFunc(!isOpened)
     }
 
 
