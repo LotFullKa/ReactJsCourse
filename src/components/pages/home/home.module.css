@@ -1,0 +1,9 @@
+.signin {
+    position: absolute;
+    right: 0;
+    margin: 50px;
+    margin-right: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+  }
