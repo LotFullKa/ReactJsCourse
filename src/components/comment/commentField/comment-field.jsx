@@ -39,7 +39,7 @@ export function CommentField({author, isOpen, cardId}) {
 
     const [comment, setComment] = useState('')
     const [idGenerator, inc] = useState(commentsList.length + 1)
-    useEffect(() =>{
+    useEffect(() => {
             inc(commentsList.length + 1)
         }, [commentsList])
     console.log(idGenerator)
