@@ -6,16 +6,17 @@ import { Title } from '../../title/title'
 import { ItemList } from '../../itemList/itemList'
 import style from './home.module.css'
 
-export function Home({auth_func}) {
+export function Home({setUserName, user}) {
 
     return (
         <>
             <div className={style.signin}>
-                <Link to='auth'> sign in</Link>
+                {user ? <Link onClick={() => (setUserName(''))}> {user} | sign out </Link> : <Link to='auth'> sign in</Link>}
+                
             </div>
 
             <Title/>
-            <ItemList/>
+            <ItemList user={user}/>
         </>
     )
 }

@@ -27,3 +27,7 @@ export function TryAuthorize(name, passw) {
 
     return true
 }
+
+export function UnAuthorize(name) {
+    signed_users.setItem(name, false)
+}

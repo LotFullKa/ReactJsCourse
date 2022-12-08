@@ -4,7 +4,7 @@ import { getArticles } from '../../utils/get-article'
 
 import { Card } from '../card/card';
 
-export function ItemList() {
+export function ItemList({user}) {
 
     const [data, setData] = useState([])
   useEffect(() => {
@@ -17,6 +17,7 @@ export function ItemList() {
         {!data ? 
             (<div>Loading. . .</div>) : 
             (<div>{data.map((item, index) => <Card 
+                                                user={user}
                                                 key={index}
                                                 cardId={item.articleId}
                                                 title={item.title} 

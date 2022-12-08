@@ -6,14 +6,14 @@ import {Authorization} from '../pages/authorization/authorization'
 import {Home} from '../pages/home/home'
 
 function App() {
-  const [authorised, setAuthorised] = useState(false)
+  const [userName, setUserName] = useState('')
 
   return (
     <div className="App">
         
         <Routes>
-            <Route exact path='/' element={<Home auth_func={setAuthorised}/>}/>
-            <Route path='auth/' element={<Authorization auth_func={setAuthorised}/>}/>
+            <Route exact path='/' element={<Home setUserName={setUserName} user={userName}/>}/>
+            <Route path='auth/' element={<Authorization user_name={setUserName}/>}/>
             <Route path='*' element={<Navigate to='/'/>} />
         </Routes>
   </div>

@@ -6,8 +6,10 @@ import { getComments } from '../../../utils/get-comments-by-article'
 const defaultName = 'Anonimus'
 
 function Comment({id, author, comment, removeCommentById}) {
-    
-    console.log("comment " + id + " was made")
+    if (author === '') {
+        author = defaultName
+    }
+    console.log("comment " + id + " was made by" + author)
     return (
         <div className={style.comment}>
             <div className={style.inputInterface}>
@@ -23,7 +25,7 @@ function Comment({id, author, comment, removeCommentById}) {
     )
 }
 
-export function CommentField({isOpen, cardId}) {
+export function CommentField({author, isOpen, cardId}) {
     const [commentsList, setCommentsList] = useState([])
     const [commentCount, setCommentCount] = useState([commentsList.length])
 
@@ -55,8 +57,8 @@ export function CommentField({isOpen, cardId}) {
 
     const pushComment = () => {
         if (comment === '') return
-        console.log("comment "+ idGenerator + " was made")
-        setCommentsList([...commentsList, {author: defaultName, articleId: cardId, id: idGenerator, text: comment}])
+        // console.log("comment "+ idGenerator + " was made by " + author)
+        setCommentsList([...commentsList, {author: author, articleId: cardId, id: idGenerator, text: comment}])
         setComment('')
     }
     

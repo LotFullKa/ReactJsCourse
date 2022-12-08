@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import style from './authorization.module.css'
 import {TryAuthorize} from '../../../utils/authorization.js'
 
-export function Authorization({auth_func}) {
+export function Authorization({user_name}) {
 
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
@@ -21,9 +21,10 @@ export function Authorization({auth_func}) {
 
     const signIn = () => {
         const answer = TryAuthorize(name, password)
-        if (answer === 'true') {
-            auth_func(true)
-            navigate("/sdadas")
+        if (answer === true) {
+            user_name(name)
+            navigate("/")
+            console.log(name + " is authorized")
         } else {
             setMessange(answer)
         }
