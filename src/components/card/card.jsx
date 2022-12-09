@@ -6,7 +6,7 @@ import {CommentButton} from '../comment/commentButton/comment-button'
 import { useState } from "react";
 import { CommentField } from "../comment/commentField/comment-field";
 
-export function Card({cardId, title, depth, text, currentLikes}) {
+export function Card({user, cardId, title, depth, text, currentLikes}) {
 
     const [isCommentFieldOpen, openField] = useState(false)
 
@@ -21,7 +21,7 @@ export function Card({cardId, title, depth, text, currentLikes}) {
                 <CommentButton fieldOpenFunc={openField}/>
             </div>
         </div>
-        <CommentField isOpen={isCommentFieldOpen} cardId={cardId}/>
+        <CommentField author={user} isOpen={isCommentFieldOpen} cardId={cardId}/>
         </div>
     )
 }

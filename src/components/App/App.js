@@ -1,33 +1,21 @@
 import './App.css';
-import React, {useState, useEffect} from 'react'
-// import data from '../../data/article.json'
-import { Card } from '../card/card';
-import { getArticles } from '../../utils/get-article'
+import React, { useState } from 'react'
+
+import { Route, Routes,  Navigate } from 'react-router-dom'
+import {Authorization} from '../pages/authorization/authorization'
+import {Home} from '../pages/home/home'
 
 function App() {
-
-  const [data, setData] = useState([])
-  useEffect(() => {
-    getArticles().then(fetchedData => setData(fetchedData))
-  }, [])
+  const [userName, setUserName] = useState('')
 
   return (
     <div className="App">
-        <div className="App-header">Choose your favorite level in great Abyss
-            <div className='Describe'>From manga "Made in Abyss"</div>
-        </div>
-        {!data ? 
-            (<div>Loading. . .</div>) : 
-            (<div>{data.map((item, index) => <Card 
-                                                key={index}
-                                                cardId={item.articleId}
-                                                title={item.title} 
-                                                depth={item.depth} 
-                                                text={item.describe} 
-                                                currentLikes={item.currentLikes}
-                                            />) 
-                  } 
-            </div> )}
+        
+        <Routes>
+            <Route exact path='/' element={<Home setUserName={setUserName} user={userName}/>}/>
+            <Route path='auth/' element={<Authorization user_name={setUserName}/>}/>
+            <Route path='*' element={<Navigate to='/'/>} />
+        </Routes>
   </div>
   );
 }

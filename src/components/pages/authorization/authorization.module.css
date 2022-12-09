@@ -1,0 +1,41 @@
+.logingCard {
+    padding: 80px;
+    background-color: gray;
+    border: 2px solid green;
+
+    color: black;
+    font-size: x-large;
+
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    right: 30%;
+}
+
+.signin {
+    position: absolute;
+    bottom: 30px;
+    right: 100px;
+}
+
+.back {
+    position: absolute;
+    bottom: 30px;
+    left: 100px;
+}
+
+.messange {
+    position:absolute;
+    top: 20px;
+    border-radius: 5px;
+    left: 25%;
+    padding: 5px;
+    background-color: white;
+    color: red;
+}
+
+.button {
+    font-size:large;
+    border-radius: 10px;
+}
+
