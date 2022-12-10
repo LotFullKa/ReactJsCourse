@@ -57,7 +57,6 @@ export function CommentField({author, isOpen, cardId}) {
 
     const pushComment = () => {
         if (comment === '') return
-        // console.log("comment "+ idGenerator + " was made by " + author)
         setCommentsList([...commentsList, {author: author, articleId: cardId, id: idGenerator, text: comment}])
         setComment('')
     }

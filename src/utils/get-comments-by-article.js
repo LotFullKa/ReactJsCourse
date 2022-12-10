@@ -6,7 +6,6 @@ function selectByArticleId(totalData, id) {
     return totalData.filter(({articleId}) => articleId === id)
 }
 
-
 export async function getComments(articleId) {
     return new Promise(resolve => {
         const targetComments = selectByArticleId(comments, articleId)
